@@ -1,6 +1,6 @@
 ThisBuild / crossScalaVersions := Seq("3.6.4")
 ThisBuild / scalaVersion := crossScalaVersions.value.head
-ThisBuild / githubWorkflowOSes := Seq("windows-latest","debian-latest")
+ThisBuild / githubWorkflowOSes := Seq("debian-latest","windows-latest")
 ThisBuild / githubWorkflowJavaVersions += JavaSpec.temurin("21")
 ThisBuild / githubWorkflowJavaVersions -= JavaSpec.zulu("8")
 libraryDependencies ++= Seq(
@@ -15,10 +15,7 @@ libraryDependencies ++= Seq(
   "dev.zio" %% "zio-http-testkit" % "3.2.0" % Test,
   "dev.zio" %% "zio-test-sbt" % "2.1.17" % Test,
   "org.specs2" %% "specs2-core" % "5.6.2" % Test,
-  "org.specs2" %% "specs2-html" % "5.6.2" % Test
-
-
-)
+  "org.specs2" %% "specs2-html" % "5.6.2" % Test)
 dependencyCheckAssemblyAnalyzerEnabled := Option(false)
 (Test / testOptions) += Tests.Argument(TestFrameworks.Specs2, "html")
 //(Test / testOptions) += Tests.Argument(TestFrameworks.Specs2,"markdown")
