@@ -1,6 +1,6 @@
 ThisBuild / crossScalaVersions := Seq("3.6.4")
 ThisBuild / scalaVersion := crossScalaVersions.value.head
-ThisBuild / githubWorkflowOSes := Seq("debian-latest","windows-latest")
+ThisBuild / githubWorkflowOSes := Seq("ubuntu-latest","windows-latest")
 ThisBuild / githubWorkflowJavaVersions += JavaSpec.temurin("21")
 ThisBuild / githubWorkflowJavaVersions -= JavaSpec.zulu("8")
 libraryDependencies ++= Seq(
