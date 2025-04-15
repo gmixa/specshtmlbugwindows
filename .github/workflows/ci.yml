@@ -21,7 +21,7 @@ jobs:
     name: Build and Test
     strategy:
       matrix:
-        os: [debian-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest]
         scala: [3.6.4]
         java: [temurin@21]
     runs-on: ${{ matrix.os }}
@@ -79,7 +79,7 @@ jobs:
     if: github.event_name != 'pull_request' && (github.ref == 'refs/heads/main')
     strategy:
       matrix:
-        os: [debian-latest]
+        os: [ubuntu-latest]
         scala: [3.6.4]
         java: [temurin@21]
     runs-on: ${{ matrix.os }}
