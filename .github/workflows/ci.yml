@@ -21,7 +21,7 @@ jobs:
     name: Build and Test
     strategy:
       matrix:
-        os: [windows-latest, debian-latest]
+        os: [debian-latest, windows-latest]
         scala: [3.6.4]
         java: [temurin@21]
     runs-on: ${{ matrix.os }}
@@ -79,14 +79,13 @@ jobs:
     if: github.event_name != 'pull_request' && (github.ref == 'refs/heads/main')
     strategy:
       matrix:
-        os: [windows-latest]
+        os: [debian-latest]
         scala: [3.6.4]
         java: [temurin@21]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Ignore line ending differences in git
         if: contains(runner.os, 'windows')
-        shell: bash
         run: git config --global core.autocrlf false
 
       - name: Configure pagefile for Windows
@@ -119,11 +118,9 @@ jobs:
           name: target-${{ matrix.os }}-3.6.4-${{ matrix.java }}
 
       - name: Inflate target directories (3.6.4)
-        shell: bash
         run: |
           tar xf targets.tar
           rm targets.tar
 
       - name: Publish project
-        shell: bash
         run: sbt +publish
