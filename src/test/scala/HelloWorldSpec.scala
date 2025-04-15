@@ -1,8 +1,10 @@
 import zio.Scope
 import zio.test.*
 
+import java.io.IOException
+
 object HelloWorldSpec extends ZIOSpecDefault:
-  override def spec =
+  override def spec: Spec[Any, IOException] =
     suite("HelloWorldSpec") {
       test("sayHello correctly displays output") {
         for {
