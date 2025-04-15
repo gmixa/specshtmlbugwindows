@@ -1,5 +1,8 @@
-scalaVersion := "3.6.4"
+ThisBuild / crossScalaVersions := Seq("3.6.4")
+ThisBuild / scalaVersion := crossScalaVersions.value.head
+ThisBuild / githubWorkflowOSes := Seq("windows-latest","debian-latest")
 
+ThisBuild / githubWorkflowJavaVersions += JavaSpec.temurin("21")
 libraryDependencies ++= Seq(
   "dev.zio" %% "zio" % "2.1.17",
   "dev.zio" %% "zio-json" % "0.7.42",
