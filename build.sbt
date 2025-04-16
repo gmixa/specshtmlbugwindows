@@ -12,5 +12,5 @@ dependencyCheckAssemblyAnalyzerEnabled := Option(false)
 name := "zio exp"
 ThisBuild / githubWorkflowJobSetup :=
   Seq(
-    WorkflowStep.Run(List("apt-get install pandoc")),
+    WorkflowStep.Run(List("sudo apt-get install pandoc")),
   )
